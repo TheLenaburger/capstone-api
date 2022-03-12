@@ -3,11 +3,30 @@ from rest_framework import serializers
 
 from .models.mango import Mango
 from .models.user import User
+from .models.answer import Answer
+from .models.question import Question
 
 class MangoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Mango
         fields = ('id', 'name', 'color', 'ripe', 'owner')
+
+class AnswerSerializer(serializers.ModelSerializer):
+  owner = serializers.StringRelatedField()
+  class Meta:
+    model = Answer
+    fields = '__all__'
+
+class QuestionSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = Question
+    fields = '__all__'
+
+class QuestionReadSerializer(serializers.ModelSerializer):
+  answer = AnswerSerializer(many=True, read_only=True)
+  class Meta:
+    model = Question
+    fields = '__all__'
 
 class UserSerializer(serializers.ModelSerializer):
     # This model serializer will be used for User creation
