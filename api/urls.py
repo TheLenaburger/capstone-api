@@ -11,6 +11,7 @@ urlpatterns = [
     path('change-pw/', ChangePasswordView.as_view(), name='change-pw'),
     path('questions/', QuestionsView.as_view(), name='questions'),
     path('questions/<int:pk>/', QuestionDetailView.as_view(), name='question_detail'),
+    path('questions/<int:pk>/edit/', QuestionDetailView.as_view(), name='question_update')
     # path('answers/<int:pk>/', AnswersView.as_view(), name='answer_detail')
 
 ]
