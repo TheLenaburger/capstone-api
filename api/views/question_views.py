@@ -17,6 +17,10 @@ class QuestionsView(generics.ListCreateAPIView):
     data = QuestionSerializer(questions, many=True).data
     return Response({ 'questions': data })
 
+class QuestionsCreateView(generics.ListCreateAPIView):
+  permission_classes=(IsAuthenticated,)
+  serializer_class = QuestionSerializer
+  
   def post(self, request):
     """Create request"""
     request.data['question']['owner'] = request.user.id
