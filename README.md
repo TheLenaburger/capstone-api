@@ -1,7 +1,3 @@
-# Capstone API
-
-This is where the description of my app will go.
-
 # YooHoo Answers
 This app was born in honor of the late Yahoo! Answers. Currently, it exists as a message board where users can ask and answer whatever questions they may have on their mind.
 This is the repository for the back-end API.
